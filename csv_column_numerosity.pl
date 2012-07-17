@@ -9,7 +9,9 @@ use strict;
 use warnings;
 use Text::CSV_XS;
 
-die "Usage: $0 <CSV file> <column number> [<separator>]\n" unless @ARGV == 2;
+die "Usage: $0 <CSV file> <column number> [<separator>]\n"
+  unless @ARGV == 2
+      or @ARGV == 3;
 
 ############
 # User input
