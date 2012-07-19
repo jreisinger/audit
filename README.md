@@ -1,3 +1,3 @@
 ia
 ==
-Various (quick and dirty) scripts.
+Various (quick and dirty) scripts used during audit engagements.
