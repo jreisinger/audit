@@ -5,6 +5,7 @@ Various (quick and dirty) scripts used during audit engagements.
 Scripts
 -------
 
+* `bigger.pl` - find files bigger than some size
 * `cnt-files.pl` - count files on Linux/Unix created by a certain user
 * `compare_arrays.pl` - compare elements of two arrays (groups of data)
 * `create-initials.pl` - create initials from first, last name
