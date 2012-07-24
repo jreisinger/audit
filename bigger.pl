@@ -33,8 +33,8 @@ if ( $output eq 'csv' ) {
 }
 
 # Search directories
-find(\&wanted, @dirs);
 my %size;
+find(\&wanted, @dirs);
 
 # Get the longest filepath
 my $longest = 0;
