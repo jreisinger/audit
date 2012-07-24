@@ -17,8 +17,8 @@ my $result  = GetOptions(
     "dirs=s"    => \@dirs,
 );
 
-# --help
-usage and exit if $help;
+# --help or uknown option
+usage() and exit if $help or not $result;
 
 # --output
 if ( $output eq 'csv' ) {
@@ -29,7 +29,7 @@ if ( $output eq 'csv' ) {
 } elsif ( $output eq 'term' ) {
     select STDOUT;    # default output
 } else {
-    usage and die;
+    usage() and die;
 }
 
 # Search directories
@@ -69,7 +69,7 @@ sub usage {
     print "Search <dir(s) to search> for files that are bigger than n bytes.\n";
     print "\n";
     print "All arguments are optional.\n";
-    print " --maxsize n                search for file bigger than n bytes, n defaults to 0\n";
+    print " --maxsize n                search for files bigger than n bytes, n defaults to 0\n";
     print " --output csv|term          output goes to CSV file or terminal, defaults to term\n";
     print " --dirs <dir(s) to search>  defaults to '.', meaning the current directory\n";
 }
