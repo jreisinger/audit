@@ -1,12 +1,11 @@
 #!/usr/bin/perl
+# Parse log file for last password change.
 use strict;
 use warnings;
-# Parse log file for last password change.
 
 my @interesting_logins = qw (
 root
 user1
-user2
 user2
 );
 
