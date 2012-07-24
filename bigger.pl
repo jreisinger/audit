@@ -17,16 +17,6 @@ my $result  = GetOptions(
     "dirs=s"    => \@dirs,
 );
 
-sub usage {
-    print "Usage: $0 [ --help ] [ --size n ] [ --output csv|term ] [ <dir(s) to search> ]\n";
-    print "Search <dir(s) to search> for files that are bigger than n bytes.\n";
-    print "\n";
-    print "All arguments are optional.\n";
-    print " --maxsize n                search for file bigger than n bytes, n defaults to 0\n";
-    print " --output csv|term          output goes to CSV file or terminal, defaults to term\n";
-    print " --dirs <dir(s) to search>  defaults to '.', meaning the current directory\n";
-}
-
 # --help
 usage and exit if $help;
 
@@ -45,12 +35,6 @@ if ( $output eq 'csv' ) {
 # Search directories
 find(\&wanted, @dirs);
 my %size;
-sub wanted {
-    return unless -e;    # only take existing filenames
-    return if -l;        # skip symbolic links
-    my $size = -s;
-    $size{$File::Find::name} = $size if $size > $maxsize;
-}
 
 # Get the longest filepath
 my $longest = 0;
@@ -78,4 +62,21 @@ sub add_000_separator {
     # Add comma each time through the do-nothing loop
     1 while $number =~ s/^(\d+)(\d\d\d)/$1,$2/;   # 1 is traditional placeholder
     $number;
+}
+
+sub usage {
+    print "Usage: $0 [ --help ] [ --size n ] [ --output csv|term ] [ <dir(s) to search> ]\n";
+    print "Search <dir(s) to search> for files that are bigger than n bytes.\n";
+    print "\n";
+    print "All arguments are optional.\n";
+    print " --maxsize n                search for file bigger than n bytes, n defaults to 0\n";
+    print " --output csv|term          output goes to CSV file or terminal, defaults to term\n";
+    print " --dirs <dir(s) to search>  defaults to '.', meaning the current directory\n";
+}
+
+sub wanted {
+    return unless -e;    # only take existing filenames
+    return if -l;        # skip symbolic links
+    my $size = -s;
+    $size{$File::Find::name} = $size if $size > $maxsize;
 }
