@@ -7,18 +7,18 @@ use File::Find;
 use Getopt::Long;
 
 # Command line arguments
-my $help    = 0;            # initial value
-my $minsize = 0;            # initial value
-my $output  = 'term';       # initial value
-my $result  = GetOptions(
+my $help       = 0;            # initial value
+my $minsize    = 0;            # initial value
+my $output     = 'term';       # initial value
+my $options_ok = GetOptions(
     "help"      => \$help,
     "minsize=i" => \$minsize,
     "output=s"  => \$output,
 );
 
-
 # --help or uknown option
-usage() and exit if $help or not $result;
+usage() if $help;
+exit 1 unless $options_ok;
 
 # --output
 if ( $output eq 'csv' ) {
