@@ -2,20 +2,20 @@
 # Find files bigger than some size.
 use strict;
 use warnings;
+use 5.010;
 use File::Find;
 use Getopt::Long;
 
 # Command line arguments
-my $help    = 0;
-my $maxsize = 0;
-my $output  = 'term';
-my @dirs    = qw( . );
+my $help    = 0;            # initial value
+my $minsize = 0;            # initial value
+my $output  = 'term';       # initial value
 my $result  = GetOptions(
     "help"      => \$help,
-    "maxsize=i" => \$maxsize,
+    "minsize=i" => \$minsize,
     "output=s"  => \$output,
-    "dirs=s"    => \@dirs,
 );
+
 
 # --help or uknown option
 usage() and exit if $help or not $result;
@@ -34,7 +34,11 @@ if ( $output eq 'csv' ) {
 
 # Search directories
 my %size;
-find(\&wanted, @dirs);
+@ARGV = qw( . ) unless @ARGV;   # if not directories supplied, search the current one
+for my $dir ( @ARGV ) {
+    die "'$dir' is not a directory\n" unless -d $dir;
+}
+find(\&wanted, @ARGV);
 
 # Get the longest filepath
 my $longest = 0;
@@ -65,18 +69,18 @@ sub add_000_separator {
 }
 
 sub usage {
-    print "Usage: $0 [ --help ] [ --size n ] [ --output csv|term ] [ <dir(s) to search> ]\n";
-    print "Search <dir(s) to search> for files that are bigger than n bytes.\n";
+    print "Usage: ", $0 =~ /([^\/]+)$/, " [ --help ] [ --size n ] [ --output csv|term ] [ <dir(s) to search> ]\n";
+    print "Recursively search <dir(s) to search> for files that are bigger than n bytes.\n";
     print "\n";
     print "All arguments are optional.\n";
-    print " --maxsize n                search for files bigger than n bytes, n defaults to 0\n";
-    print " --output csv|term          output goes to CSV file or terminal, defaults to term\n";
-    print " --dirs <dir(s) to search>  defaults to '.', meaning the current directory\n";
+    print "  --minsize n         search for files bigger than n bytes, n defaults to 0\n";
+    print "  --output csv|term   output goes to CSV file or terminal, defaults to term\n";
+    print "  <dir(s) to search>  defaults to '.', meaning the current directory\n";
 }
 
 sub wanted {
     return unless -e;    # only take existing filenames
     return if -l;        # skip symbolic links
     my $size = -s;
-    $size{$File::Find::name} = $size if $size > $maxsize;
+    $size{$File::Find::name} = $size if $size > $minsize;
 }
