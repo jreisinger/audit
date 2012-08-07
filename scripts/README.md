@@ -1,9 +1,7 @@
-ia
-==
-Various (quick and dirty) scripts used during audit engagements.
-
-Scripts
+scripts
 -------
+
+Various (quick and dirty) scripts used during audit engagements.
 
 * `bigger.pl` - find files bigger than some size
 * `cnt-files.pl` - count files on Linux/Unix created by a certain user
