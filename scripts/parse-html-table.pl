@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+# Parse HTML tables.
 # http://scott.wiersdorf.org/blog/perl/html_parser_table_parsing.html
 use strict;
 use warnings;

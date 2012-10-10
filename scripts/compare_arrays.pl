@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+# Compare elements of two arrays (groups of data).
 use strict;
 use warnings;
 use 5.010;

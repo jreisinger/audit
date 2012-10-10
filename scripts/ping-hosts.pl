@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Ping the hosts and store the result the .csv file named after the input file
+# Ping the hosts and store the result the .csv file named after the input file.
 # You may want to run this script like this:
 #   $ ./<this_script> hosts.txt &
 #   $ tail -f hosts.csv

@@ -1,4 +1,5 @@
 #!/usr/bin/perl -w
+# Convert epoch to human readable time.
 use strict;
 
 while (<>) {

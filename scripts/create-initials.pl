@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Generate initials, e.g. John Doe => JDO
+# Generate initials from first, last name (e.g. John Doe => JDO).
 use strict;
 use warnings;
 

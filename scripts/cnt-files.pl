@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Count files created by a user
+# Count files on Linux/Unix created by a certain user.
 use strict;
 use warnings;
 use File::Find;

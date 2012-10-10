@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Collect Linux/Solaris system information
+# Collect Linux/Solaris system information.
 use strict;
 use warnings;
 use Sys::Hostname;  # core module

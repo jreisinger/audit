@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Get the numerosity of items of a defined column.
+# Calculate the numerosity of items of a defined CSV column.
 # Input: CSV data in UTF-8 format
 #
 # To convert Excel .csv to UTF-8
