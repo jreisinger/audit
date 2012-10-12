@@ -35,7 +35,7 @@ for my $ip (@ips) {
 "Connecting to $ip ($ips_count/$ips_number, max. remaining time: $time)\n";
     for my $protocol (@protocols) {
         for my $port (@ports) {
-            print "\t$protocol:$ip:$port: ";
+            print "\t$protocol://$ip:$port: ";
             my $ua = LWP::UserAgent->new;
             $ua->timeout($timeout);
             my $response    = $ua->get("$protocol://$ip:$port");
