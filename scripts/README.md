@@ -11,6 +11,7 @@ Various (quick and dirty) scripts used during audit engagements.
 * `csv_column_numerosity.pl` - calculate the numerosity of items of a defined CSV column
 * `epoch2time.pl` - convert epoch to human readable time
 * `gen_desc.pl` - generate README.md from scripts' descriptions
+* `ht_checker.pl` - get HTTP status codes
 * `last_pw_change.pl` - parse /etc/shadow for last password change
 * `nmap_xml2csv.pl` - convert nmap scan results from .xml to .csv
 * `parse-html-table.pl` - parse HTML tables
