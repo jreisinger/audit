@@ -5,7 +5,7 @@ use warnings;
 use LWP::UserAgent;
 
 # Get IP addresses from file or STDIN
-die "Usage: $0 <ip_phones.txt> | -\n" unless $ARGV[0];
+die "Usage: $0 <ip_addresses.txt> | -\n" unless $ARGV[0];
 chomp( my @ips = <> );
 
 # Configuration section
