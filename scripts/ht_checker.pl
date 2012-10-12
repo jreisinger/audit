@@ -9,7 +9,7 @@ die "Usage: $0 <ip_addresses.txt> | -\n" unless $ARGV[0];
 chomp( my @ips = <> );
 
 # Configuration section
-my @protocols = qw(http https);
+my @protocols = qw(http https);    # https needs LWP::Protocol::https
 my @ports     = qw(80 8080);
 my $timeout   = 3;
 
