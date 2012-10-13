@@ -20,7 +20,7 @@ my $int_count;
 sub my_int_handler { $int_count++ }
 $SIG{'INT'} = 'my_int_handler';
 
-$|++;    # hot pipe
+$|++;    # hot pipe (don't buffer output)
 
 my $ips_number = @ips;
 my $ips_count;
