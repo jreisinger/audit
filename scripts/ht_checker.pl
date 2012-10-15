@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 use LWP::UserAgent;
+use autodie;
 
 # Get IP addresses from file or STDIN
 die "Usage: $0 <ip_addresses.txt> | -\n" unless $ARGV[0];
@@ -55,10 +56,13 @@ for my $ip (@ips) {
 }
 
 # Print output
-print "-" x 79, "\n";
+( my $outfile = $0 ) =~ s/(\.\w+)?$/.out/; # change suffix, if any, to .out
+
+open my $fh, ">", $outfile;
 for my $code ( sort keys %responses ) {
     my $count = @{ $responses{$code} };
-    print
+    print $fh
 ">> Response code $code ($count/$connections_count): @{ $responses{$code} }\n";
 }
-
+close $fh;
+print "Output stored to '$outfile'\n";
