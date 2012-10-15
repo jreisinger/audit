@@ -57,7 +57,6 @@ for my $ip (@ips) {
 
 # Print output
 ( my $outfile = $0 ) =~ s/(\.\w+)?$/.out/; # change suffix, if any, to .out
-
 open my $fh, ">", $outfile;
 for my $code ( sort keys %responses ) {
     my $count = @{ $responses{$code} };
