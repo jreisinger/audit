@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 # Convert nmap scan results from .xml to .csv.
 # Based on http://www.jedge.com/wordpress/2009/11/using-perl-to-parse-nmap-xml/
+use strict;
+use warnings;
 use Nmap::Parser;  # CPAN
 
 my $np = new Nmap::Parser;
