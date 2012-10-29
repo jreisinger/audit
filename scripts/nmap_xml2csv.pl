@@ -23,7 +23,7 @@ print
 
 print "Host Name,Ip Address,OS Name,Port,Service Name,Service Product\n";
 for my $host ( $np->all_hosts() ) {
-    for my $port ( $host->tcp_ports() ) {
+    for my $port ( $host->tcp_ports('open') ) {
         my $service = $host->tcp_service($port);
         my $os      = $host->os_sig;
 
