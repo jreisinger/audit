@@ -10,6 +10,7 @@ Various (quick and dirty) scripts used during audit engagements.
 * `create-initials.pl` - generate initials from first, last name (e.g. John Doe => JDO)
 * `csv_column_numerosity.pl` - calculate the numerosity of items of a defined CSV column
 * `epoch2time.pl` - convert epoch to human readable time
+* `find_win_shares.sh` - discover Windows shares
 * `gen_desc.pl` - generate README.md from scripts' descriptions
 * `ht_checker.pl` - get HTTP status codes
 * `last_pw_change.pl` - parse /etc/shadow for last password change

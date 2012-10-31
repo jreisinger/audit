@@ -6,7 +6,7 @@ use autodie;
 
 # Extract descriptions from scripts
 my %desc;
-for my $script ( glob "*.pl" ) {
+for my $script ( glob "*.pl *.sh" ) {
     open my $fh, "<", $script;
     chomp( my @lines = <$fh> );
     close $fh;
