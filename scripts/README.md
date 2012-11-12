@@ -11,6 +11,7 @@ Various (quick and dirty) scripts used during audit engagements.
 * `csv_column_numerosity.pl` - calculate the numerosity of items of a defined CSV column
 * `epoch2time.pl` - convert epoch to human readable time
 * `find_win_shares.sh` - discover Windows shares
+* `gen-txt-file.pl` - generate text file of defined size
 * `gen_desc.pl` - generate README.md from scripts' descriptions
 * `ht_checker.pl` - get HTTP status codes
 * `last_pw_change.pl` - parse /etc/shadow for last password change
