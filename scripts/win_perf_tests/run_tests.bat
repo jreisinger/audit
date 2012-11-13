@@ -1,16 +1,19 @@
 :: Turn off command printing
-::@echo off
+@echo off
 
 :: MAIN
 set mail_server=
 set mail_address=
 
+echo --- TESTS STARTED ---
 call :init_out_file
 call :create_files
 :: Third number defines number of iterations
 for /l %%X in (1,1,3) do (call :run_tests)
 call :clean_up
 call :mail_results
+echo --- TESTS DONE ---
+pause
 goto :eof
 
 :: Initialize output file
