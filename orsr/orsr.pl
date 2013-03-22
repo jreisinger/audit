@@ -79,7 +79,7 @@ for my $name (@names) {
     # Get info on name from orsr.sk
     my $url =
 "${base_url}/hladaj_osoba.asp?PR=${surname}&MENO=${gname}&SID=0&T=f0&R=on";
-    sleep int rand(3);    # lets be decent and wait for some random time
+    sleep int rand(5);    # lets be decent and wait for some random time
     my @ids = get_ids($url);
 
     # Print informative output and store CSV to a file
