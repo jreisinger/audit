@@ -4,7 +4,9 @@
 #
 # To convert Excel .csv to UTF-8
 #   - open file.csv in Notepad
-#   - File => Save As... => Encoding: UTF-8
+#   - Encoding => Convert ot UTF-8
+#   - Optionally: Edit => EOL Conversion => ...
+#   - File => Save
 use strict;
 use warnings;
 use Text::CSV_XS;
