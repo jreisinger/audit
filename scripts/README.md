@@ -11,11 +11,12 @@ Various (quick and dirty) scripts used during audit engagements.
 * `csv_column_numerosity.pl` - calculate the numerosity of items of a defined CSV column
 * `epoch2time.pl` - convert epoch to human readable time
 * `find_win_shares.sh` - discover Windows shares
-* `gen-txt-file.pl` - generate text file of defined size
+* `foaf.pl` - # Get some persons' companies from foaf.sk and compare them with suppliers
+* `gen-txt-file.pl` - no description
 * `gen_desc.pl` - generate README.md from scripts' descriptions
 * `ht_checker.pl` - get HTTP status codes
 * `last_pw_change.pl` - parse /etc/shadow for last password change
-* `nmap_xml2csv.pl` - convert nmap scan results from .xml to .csv
+* `nmap_xml2csv.pl` - no description
 * `parse-html-table.pl` - parse HTML tables
 * `ping-hosts.pl` - ping the hosts and store the result the .csv file named after the input file
 * `sys-info.pl` - collect Linux/Solaris system information
