@@ -9,6 +9,7 @@ Various (quick and dirty) scripts used during audit engagements.
 * `compare_arrays.pl` - compare elements of two arrays (groups of data)
 * `create-initials.pl` - generate initials from first, last name (e.g. John Doe => JDO)
 * `csv_column_numerosity.pl` - calculate the numerosity of items of a defined CSV column
+* `dlznik.pl` - get list of bankrupted companies (in CSV format)
 * `epoch2time.pl` - convert epoch to human readable time
 * `find_win_shares.sh` - discover Windows shares
 * `foaf.pl` - # Get some persons' companies from foaf.sk and compare them with suppliers
