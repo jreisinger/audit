@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Get HTTP status codes.
+# Get HTTP status codes. Output will be stored to $0.out
 use strict;
 use warnings;
 use LWP::UserAgent;
