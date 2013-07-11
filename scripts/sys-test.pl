@@ -60,7 +60,43 @@ is( @dups, 0, "duplicate uids (@dups)" );
 is( check_path(),         1, "$ENV{USER}'s PATH contains dot" );
 is( check_profile_path(), 1, "/etc/profile's PATH contains dot" );
 
+# setuid
+{
+    my @bad_files = check_setuid();
+    is( @bad_files, 0, "word writable setuid/setgid files (@bad_files)" );
+}
+
 ## Functions
+
+sub check_setuid {
+    use File::Find;
+
+    my @DIRLIST = qw(
+      /bin
+      /sbin
+      /usr/local/bin
+      /usr/local/sbin
+      /usr/bin
+      /usr/sbin
+      /usr/lib/cgi-bin
+    );
+    push @DIRLIST, "$ENV{HOME}/bin" if -e "$ENV{HOME}/bin";
+
+    my @bad_files;
+
+    sub process_file {
+        return unless -u or -g _;    # setuid or setgid bit set
+        my $stat = stat($_);
+        my $mode = $stat->mode;
+        $mode &= 0777;
+        if ( $mode & 002 ) {         # word writable
+            push @bad_files, $File::Find::name;
+        }
+    }
+    find( \&process_file, @DIRLIST );
+
+    return @bad_files;
+}
 
 sub check_profile_path {
     my $file = "/etc/profile";
