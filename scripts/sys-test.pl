@@ -56,7 +56,32 @@ for my $file (@files) {
 my @dups = duplicate_uids();
 is( @dups, 0, "duplicate uids (@dups)" );
 
+# PATH contains "."
+is( check_path(),         1, "$ENV{USER}'s PATH contains dot" );
+is( check_profile_path(), 1, "/etc/profile's PATH contains dot" );
+
 ## Functions
+
+sub check_profile_path {
+    my $file = "/etc/profile";
+    open my $fh, "<", $file or die "Cant' open $file: $!";
+    while (<$fh>) {
+        next unless /PATH=/;
+        next unless /\./;
+        return $_;
+    }
+    close $fh;
+    return 1;
+}
+
+sub check_path {
+    my @dirs = split ":", $ENV{PATH};
+    for (@dirs) {
+        next unless /\./;
+        return join ":", @dirs;
+    }
+    return 1;
+}
 
 sub duplicate_uids {
     my @uids;
